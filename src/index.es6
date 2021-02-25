@@ -19,6 +19,7 @@ const requireAll = function(r) {
     r.keys().forEach(r);
 };
 
-export { TextPresenter, VideoAudioHook };
+export { TextPresenter };
+export { VideoAudioHook };
 
 window.onload = () => new UIHandler().setup();
