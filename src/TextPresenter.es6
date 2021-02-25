@@ -19,33 +19,33 @@ const presentedStrings = new Map();
 let key = 1; // if you start with zero, the first one never leaves
 /*eslint no-console: ["error", { allow: ["warn", "error", "log", "dir"] }] */
 
-export default class TextPresenter {
+class TextPresenter {
 
-  static present(str, source) {
-    const thisKey = key;
-    presentedStrings.set(thisKey, str);
-    key++;
-    Logger.log(`TP: adding key ${ thisKey } from ${ source }: ${ str }`);
-    this.updatePresentedText();
-    return thisKey;
-  }
+    static present(str, source) {
+        const thisKey = key;
+        presentedStrings.set(thisKey, str);
+        key++;
+        Logger.log(`TP: adding key ${ thisKey } from ${ source }: ${ str }`);
+        this.updatePresentedText();
+        return thisKey;
+    }
 
-  static unPresent(removeKey) {
-    // remove the text with the key
-    Logger.log(`TP: removing value for key ${ removeKey }`);
-    presentedStrings.delete(removeKey);
-    this.updatePresentedText();
-  }
+    static unPresent(removeKey) {
+        // remove the text with the key
+        Logger.log(`TP: removing value for key ${ removeKey }`);
+        presentedStrings.delete(removeKey);
+        this.updatePresentedText();
+    }
 
-  static updatePresentedText() {
-    let generatedString = "";
-    presentedStrings.forEach((v) => {
-      generatedString = v; // change = to += to concatenate, or leave as is to just show the last one
-    });
-    callbacks.forEach((cb) => cb(generatedString));
-  }
+    static updatePresentedText() {
+        let generatedString = "";
+        presentedStrings.forEach((v) => {
+            generatedString = v; // change = to += to concatenate, or leave as is to just show the last one
+        });
+        callbacks.forEach((cb) => cb(generatedString));
+    }
 
-  static addCallback(cb) {
-    callbacks.push(cb);
-  }
+    static addCallback(cb) {
+        callbacks.push(cb);
+    }
 }
