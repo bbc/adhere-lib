@@ -18,13 +18,16 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+    "target": "web",
     "mode": "development",
     "entry": [
         "./src/index.es6"
     ],
     "output": {
         "path": path.resolve(__dirname, "dist"),
-        "filename": "./bin/js/bundle.js"
+        "filename": "./bin/js/bundle.js",
+        "library": "adhere-lib",
+        "libraryTarget": "umd"
     },
     "devServer": {
         "contentBase": "./dist",
