@@ -3,12 +3,11 @@
     "version": "0.0.9",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bbc/adhere-lib",
-        "directory": "dist"
+        "url": "https://github.com/bbc/adhere-lib"
     },
     "description": "",
     "private": true,
-    "main": "bin/js/bundle.js",
+    "main": "dist/bin/js/bundle.js",
     "engines": {
         "node": ">=12.12.0"
     },
