@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@ava/stage-4"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "istanbul",
+        "transform-class-properties"
+      ],
+      "minified": false
+    },
+    "production": {
+      "plugins": [],
+      "minified": true
+    }
+  }
+}

@@ -1,0 +1,4 @@
+dist/*
+**/*.min.js
+**/*.min.es6
+rollup.config.js

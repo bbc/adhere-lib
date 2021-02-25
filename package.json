@@ -1,0 +1,131 @@
+{
+    "name": "adhere-lib",
+    "version": "0.0.9",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bbc/adhere-lib"
+    },
+    "description": "",
+    "private": true,
+    "main": "bin/js/bundle.js",
+    "engines": {
+        "node": ">=12.12.0"
+    },
+    "resolve": {
+        "extensions": [
+            "",
+            ".es6",
+            ".js"
+        ]
+    },
+    "scripts": {
+        "lint": "eslint --ext .js --ext .es6 ./*.js src test",
+        "build": "webpack -d",
+        "start": "webpack-dev-server --open",
+        "watch": "webpack -d --watch",
+        "test": "npm run-script lint && nyc ava | tnyan",
+        "cucumber": "npm run-script lint && cucumber-js ./test/cucumber/features"
+    },
+    "author": "",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@ava/babel-preset-stage-4": "^1.1.0",
+        "@babel/polyfill": "^7.12.1",
+        "aws-sdk": "^2.812.0",
+        "bluebird": "^3.7.2",
+        "hash-obj": "^1.0.0",
+        "jquery": "^3.5.1",
+        "rollup-plugin-node-globals": "^1.1.0",
+        "soundbank-pitch-shift": "^1.0.3",
+        "xml-query": "^1.4.0",
+        "xml-reader": "^2.4.3"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/register": "^7.12.10",
+        "ava": "^3.14.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-istanbul": "^6.0.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "base64-js": "^1.5.1",
+        "browser-env": "^3.3.0",
+        "copy-webpack-plugin": "^6.4.1",
+        "css-loader": "^1.0.1",
+        "cucumber": "^5.1.0",
+        "deasync": "^0.1.21",
+        "enhanced-resolve": "^4.3.0",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb": "^15.0.2",
+        "eslint-config-airbnb-base": "^11.2.0",
+        "eslint-config-defaults": "^9.0.0",
+        "eslint-config-walmart": "^1.2.4",
+        "eslint-loader": "^2.2.1",
+        "eslint-plugin-filenames": "^1.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^5.1.1",
+        "eslint-plugin-react": "^7.21.5",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "file-loader": "^2.0.0",
+        "htmllint-loader": "^2.1.4",
+        "node-sass": "^4.14.1",
+        "nunjucks": "^3.2.2",
+        "nyc": "^15.1.0",
+        "postcss-loader": "^3.0.0",
+        "sass-loader": "^7.3.1",
+        "shell-quote": "^1.7.2",
+        "style-loader": "^0.23.1",
+        "tap-nyan": "^1.1.0",
+        "webpack": "^4.44.2",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "ava": {
+        "files": [
+            "test/**/*.test.js"
+        ],
+        "sources": [
+            "src/**/*.es6"
+        ],
+        "require": [
+            "@babel/register"
+        ],
+        "failFast": false,
+        "tap": true,
+        "verbose": false,
+        "no-cache": true,
+        "failWithoutAssertions": true,
+        "concurrency": 2,
+        "browser": true
+    },
+    "nyc": {
+        "include": [
+            "src/**/*.es6"
+        ],
+        "exclude": [
+            "test/**/*",
+            "./*.js",
+            "coverage/**/*",
+            "bin/**/*"
+        ],
+        "reporter": [
+            "html",
+            "text",
+            "json-summary"
+        ],
+        "require": [
+            "@babel/register"
+        ],
+        "extension": [
+            ".js"
+        ],
+        "sourceMap": false,
+        "instrument": true,
+        "cache": false,
+        "check-coverage": false,
+        "lines": 75,
+        "all": true
+    }
+}
