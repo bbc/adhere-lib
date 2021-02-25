@@ -15,11 +15,5 @@
 import VideoAudioHook from "./VideoAudioHook.es6";
 import TextPresenter from "./TextPresenter.es6";
 
-const requireAll = function(r) {
-    r.keys().forEach(r);
-};
-
-export { TextPresenter };
-export { VideoAudioHook };
-
-window.onload = () => new UIHandler().setup();
+export { TextPresenter, VideoAudioHook };
+module.exports = { TextPresenter, VideoAudioHook };
