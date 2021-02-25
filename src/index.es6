@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import VideoAudioHook from "./VideoAudioHook.es6";
-import TextPresenter from "./TextPresenter.es6";
+import { VideoAudioHook } from "./VideoAudioHook.es6";
+import { TextPresenter } from "./TextPresenter.es6";
 
 // export { TextPresenter, VideoAudioHook };
 module.exports = { TextPresenter, VideoAudioHook };
