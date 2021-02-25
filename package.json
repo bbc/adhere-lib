@@ -7,7 +7,7 @@
     },
     "description": "",
     "private": true,
-    "main": "dist/bin/js/bundle.js",
+    "main": "./dist/bin/js/bundle.js",
     "engines": {
         "node": ">=12.12.0"
     },
@@ -17,6 +17,9 @@
             ".es6",
             ".js"
         ]
+    },
+    "exports": {
+        ".": "./dist/bin/js/bundle.js"
     },
     "scripts": {
         "lint": "eslint --ext .js --ext .es6 ./*.js src test",
