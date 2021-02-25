@@ -19,7 +19,7 @@ const presentedStrings = new Map();
 let key = 1; // if you start with zero, the first one never leaves
 /*eslint no-console: ["error", { allow: ["warn", "error", "log", "dir"] }] */
 
-class TextPresenter {
+export default class TextPresenter {
 
     static present(str, source) {
         const thisKey = key;
