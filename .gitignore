@@ -4,11 +4,5 @@
 .DS_Store
 .nyc_output/
 node_modules/
-bin/
 coverage/
-dist/
-DRAD182Y01-1-audioDescription.fixed.deduped.ttml
-DRAD182Y01.mp4
-DRAD182Y01.wav
 X.babel.config.js
-/.idea/

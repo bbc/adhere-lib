@@ -3,7 +3,8 @@
     "version": "0.0.9",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bbc/adhere-lib"
+        "url": "https://github.com/bbc/adhere-lib",
+        "directory": "dist"
     },
     "description": "",
     "private": true,
