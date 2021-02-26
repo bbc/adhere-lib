@@ -49,3 +49,5 @@ export default class TextPresenter {
         callbacks.push(cb);
     }
 }
+
+module.exports = { TextPresenter };

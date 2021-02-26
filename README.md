@@ -13,8 +13,8 @@ the use of audio attributes that can be controlled from a TTML2 document.
 # Setup
 
 ```Shell
-nvm install 12.12.0
-nvm use 12.12.0
+nvm install 15.4.0
+nvm use 15.4.0
 ```
 `cd` to project dir
 

@@ -50,21 +50,11 @@ module.exports = {
                 "use": ExtractTextPlugin.extract({
                     "fallback": "style-loader",
                     "use": [{
-                            "loader": "css-loader",
-                            "options": {
-                                "url": false
-                            }
-                        },
-                        {
-                            "loader": "sass-loader",
-                            "options": {
-                                "implementation": require("node-sass"),
-                                "sourceMap": true,
-                                "sourceMapContents": false,
-                                "url": false
-                            }
+                        "loader": "css-loader",
+                        "options": {
+                            "url": false
                         }
-                    ]
+                    }]
                 })
             },
             {
