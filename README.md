@@ -13,8 +13,8 @@ the use of audio attributes that can be controlled from a TTML2 document.
 # Setup
 
 ```Shell
-nvm install 15.4.0
-nvm use 15.4.0
+nvm install 14.16.0
+nvm use 14.16.0
 ```
 `cd` to project dir
 
@@ -83,4 +83,4 @@ This is licensed under the Apache 2.0 License.
 
 ## Copyright
 
-Copyright (c) 2020 BBC
+Copyright (c) 2021 BBC
