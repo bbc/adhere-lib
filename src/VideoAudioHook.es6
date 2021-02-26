@@ -17,7 +17,8 @@ import TrackApi from "./TrackAPIHelper.es6";
 import XMLReader from "./XMLReader.es6";
 import parseTree from "./Parser.es6";
 import { setAudioCacheStrategy, getAudioCacheStrategy } from "./Parser.es6";
-import Logger from "./Logger.es6";
+// import Logger from "./Logger.es6";
+var Logger = require("./Logger.es6").Logger;
 
 export default class VideoAudioHook {
     constructor(videoplayer) {
@@ -175,4 +176,4 @@ export default class VideoAudioHook {
     }
 }
 
-module.exports = { VideoAudioHook };
+module.exports = exports = { VideoAudioHook };

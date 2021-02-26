@@ -14,6 +14,7 @@
 
 import { VideoAudioHook } from "./VideoAudioHook.es6";
 import { TextPresenter } from "./TextPresenter.es6";
+import { Logger } from "./Logger.es6"
 
-export { TextPresenter, VideoAudioHook };
-module.exports = { TextPresenter, VideoAudioHook };
+export { Logger, TextPresenter, VideoAudioHook };
+module.exports = exports = { Logger, TextPresenter, VideoAudioHook };

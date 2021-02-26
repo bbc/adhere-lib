@@ -13,72 +13,73 @@
 // limitations under the License.
 
 import AdNode from "./AdNode.es6";
-import Logger from "./Logger.es6";
+// import Logger from "./Logger.es6";
+var Logger = require("./Logger.es6").Logger;
 
 /*eslint func-style: ["error", "declaration"]*/
 
 function speakToRate(str) {
-  let ret;
-  switch (str) {
-    case "fast":
-      ret = 1.5;
-      break;
-    case "slow":
-      ret = 0.66;
-      break;
-    case "normal":
-    default:
-      ret = 1;
-      break;
-  }
+    let ret;
+    switch (str) {
+        case "fast":
+            ret = 1.5;
+            break;
+        case "slow":
+            ret = 0.66;
+            break;
+        case "normal":
+        default:
+            ret = 1;
+            break;
+    }
 
-  return ret;
+    return ret;
 }
 
 //Convert to a value between 0 and 2, 1 being a standard pitch
 //What this output number means isn't clear, and probably up to the browser
 function pitchToValue(str) {
-  let ret = 1;
-  if (str) {
-    const pcIdx = str.indexOf("%");
-    if (pcIdx >= 0) {
-      const pcstr = str.substring(0, pcIdx);
-      ret = (parseFloat(pcstr) / 100) + 1;
+    let ret = 1;
+    if (str) {
+        const pcIdx = str.indexOf("%");
+        if (pcIdx >= 0) {
+            const pcstr = str.substring(0, pcIdx);
+            ret = (parseFloat(pcstr) / 100) + 1;
+        }
     }
-  }
 
-  return ret;
+    return ret;
 }
 
 export default class SpeechSourceNode extends AdNode {
-  constructor(parent, xmlNode, audioContext) {
-    super(parent, xmlNode, audioContext);
+    constructor(parent, xmlNode, audioContext) {
+        super(parent, xmlNode, audioContext);
 
-    this.utter = new SpeechSynthesisUtterance();
-    this.utter.text = this.value;
-    this.utter.lang = "en-US";
-    this.utter.rate = speakToRate(this.speak);
-    this.utter.pitch = pitchToValue(this.pitch);
-  }
+        this.utter = new SpeechSynthesisUtterance();
+        this.utter.text = this.value;
+        this.utter.lang = "en-US";
+        this.utter.rate = speakToRate(this.speak);
+        this.utter.pitch = pitchToValue(this.pitch);
+    }
 
-  onActive() {
-    super.onActive();
-    Logger.log(`${this.name } active speak: ${ this.utter.text}`);
-    speechSynthesis.speak(this.utter);
-  }
+    onActive() {
+        super.onActive();
+        Logger.log(`${this.name } active speak: ${ this.utter.text}`);
+        speechSynthesis.speak(this.utter);
+    }
 
-  onInactive() {
-    super.onInactive();
-    Logger.log(`${this.name } inactive speak: ${ this.utter.text}`);
-    speechSynthesis.cancel(this.utter);
-  }
+    onInactive() {
+        super.onInactive();
+        Logger.log(`${this.name } inactive speak: ${ this.utter.text}`);
+        speechSynthesis.cancel(this.utter);
+    }
 
-  onPause() {
-    speechSynthesis.pause();
-  }
+    onPause() {
+        speechSynthesis.pause();
+    }
 
-  onResume() {
-    speechSynthesis.resume();
-  }
+    onResume() {
+        speechSynthesis.resume();
+    }
 
 }

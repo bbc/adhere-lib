@@ -20,48 +20,50 @@ let videoplayer;
 
 export default class Logger {
 
-  static log(str) {
-    if (videoplayer) {
-      str = `${videoplayer.currentTime.toFixed(3).padStart(8, " ")} ${str}`;
+    static log(str) {
+        if (videoplayer) {
+            str = `${videoplayer.currentTime.toFixed(3).padStart(8, " ")} ${str}`;
+        }
+        if (consoleEnabled) {
+            console.log(str);
+        }
+        if (callbacksEnabled) {
+            callbacks.forEach((cb) => cb(str));
+        }
     }
-    if (consoleEnabled) {
-      console.log(str);
-    }
-    if (callbacksEnabled) {
-      callbacks.forEach((cb) => cb(str));
-    }
-  }
 
-  static addCallback(cb) {
-    callbacks.push(cb);
-  }
-
-  static enableBrowserLogging(value) {
-    consoleEnabled = value;
-  }
-
-  static error(str) {
-    if (consoleEnabled) {
-      console.error(str);
+    static addCallback(cb) {
+        callbacks.push(cb);
     }
-    if (callbacksEnabled) {
-      callbacks.forEach((cb) => cb(str));
-    }
-  }
 
-  static enableCallbacks(value) {
-    if (consoleEnabled) {
-      console.log(`Setting consoleEnabled to ${ value}.`);
+    static enableBrowserLogging(value) {
+        consoleEnabled = value;
     }
-    callbacksEnabled = value;
-  }
 
-  static setVideoPlayer(player) {
-    videoplayer = player;
-    if (videoplayer) {
-      this.log("Videoplayer set, log lines will be prefixed with video player currentTime.");
-    } else {
-      this.log("Videoplayer unset, log lines will not have a timestamp.");
+    static error(str) {
+        if (consoleEnabled) {
+            console.error(str);
+        }
+        if (callbacksEnabled) {
+            callbacks.forEach((cb) => cb(str));
+        }
     }
-  }
+
+    static enableCallbacks(value) {
+        if (consoleEnabled) {
+            console.log(`Setting consoleEnabled to ${ value}.`);
+        }
+        callbacksEnabled = value;
+    }
+
+    static setVideoPlayer(player) {
+        videoplayer = player;
+        if (videoplayer) {
+            this.log("Videoplayer set, log lines will be prefixed with video player currentTime.");
+        } else {
+            this.log("Videoplayer unset, log lines will not have a timestamp.");
+        }
+    }
 }
+
+module.exports = exports = { Logger };

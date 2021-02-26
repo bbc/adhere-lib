@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Logger from "./Logger.es6";
+// import Logger from "./Logger.es6";
+var Logger = require("./Logger.es6").Logger;
 
 const callbacks = [];
 const presentedStrings = new Map();
@@ -50,4 +51,4 @@ export default class TextPresenter {
     }
 }
 
-module.exports = { TextPresenter };
+module.exports = exports = { TextPresenter };
