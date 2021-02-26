@@ -14,7 +14,6 @@
 
 import { VideoAudioHook } from "./VideoAudioHook.es6";
 import { TextPresenter } from "./TextPresenter.es6";
-import { addCallback as addTextPresenterCallback } from "./TextPresenter.es6";
 
 export { TextPresenter, VideoAudioHook };
-module.exports = { TextPresenter, VideoAudioHook, addTextPresenterCallback };
+module.exports = { TextPresenter, VideoAudioHook };

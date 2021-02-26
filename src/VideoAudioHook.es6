@@ -175,4 +175,4 @@ export default class VideoAudioHook {
     }
 }
 
-module.export = { VideoAudioHook };
+module.exports = { VideoAudioHook };
