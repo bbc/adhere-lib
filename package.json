@@ -5,7 +5,7 @@
         "type": "git",
         "url": "https://github.com/bbc/adhere-lib"
     },
-    "description": "",
+    "description": "Library to allow playback of AD profile TTML2 files with a video element",
     "private": true,
     "main": "./dist/bin/js/bundle.js",
     "type": "commonjs",
