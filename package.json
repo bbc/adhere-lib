@@ -37,7 +37,7 @@
         "@babel/polyfill": "7.12.1",
         "aws-sdk": "2.852.0",
         "bluebird": "3.7.2",
-        "hash-obj": "1.0.0",
+        "hash-obj": "3.0.0",
         "jquery": "3.5.1",
         "rollup-plugin-node-globals": "1.4.0",
         "soundbank-pitch-shift": "1.0.3",
