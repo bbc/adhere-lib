@@ -14,7 +14,7 @@
 
 import AdNode from "./AdNode.es6";
 // import Logger from "./Logger.es6";
-var Logger = require("./Logger.es6").Logger;
+const Logger = require("./Logger.es6").Logger;
 import Utils from "./Utils.es6";
 
 export default class AnimateNode extends AdNode {

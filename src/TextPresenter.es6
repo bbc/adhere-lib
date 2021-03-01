@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // import Logger from "./Logger.es6";
-var Logger = require("./Logger.es6").Logger;
+const Logger = require("./Logger.es6").Logger;
 
 const callbacks = [];
 const presentedStrings = new Map();

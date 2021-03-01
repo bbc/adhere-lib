@@ -15,7 +15,7 @@
 import AudioNub from "./AudioNub.es6";
 import TimingCalculator from "./TimingCalculator.es6";
 // import Logger from "./Logger.es6";
-var Logger = require("./Logger.es6").Logger;
+const Logger = require("./Logger.es6").Logger;
 import props from "./PlaybackProperties.es6";
 
 const readyStateMap = {

@@ -14,7 +14,7 @@
 
 import AdSourceNode from "./AdSourceNode.es6";
 // import Logger from "./Logger.es6";
-var Logger = require("./Logger.es6").Logger;
+const Logger = require("./Logger.es6").Logger;
 
 // This guy is a little weird - It's the input to it's parent; i.e. in the graph
 // it is the parent, but in the tree (and xml), it's a child.

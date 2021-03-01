@@ -20,7 +20,7 @@ import SpeechSourceNode from "./SpeechSourceNode.es6";
 import AudioNub from "./AudioNub.es6";
 import AnimateNode from "./AnimateNode.es6";
 // import Logger from "./Logger.es6";
-var Logger = require("./Logger.es6").Logger;
+const Logger = require("./Logger.es6").Logger;
 import base64js from "base64-js";
 
 const CACHE_STRATEGY_REUSE = true;

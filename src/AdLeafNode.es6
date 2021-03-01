@@ -14,9 +14,9 @@
 
 import AudioNub from "./AudioNub.es6";
 // import Logger from "./Logger.es6";
-var Logger = require("./Logger.es6").Logger;
+const Logger = require("./Logger.es6").Logger;
 // import TextPresenter from "./TextPresenter.es6";
-var TextPresenter = require("./TextPresenter.es6").TextPresenter;
+const TextPresenter = require("./TextPresenter.es6").TextPresenter;
 
 let defaultOutput = null;
 
