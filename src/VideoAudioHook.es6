@@ -107,7 +107,7 @@ export default class VideoAudioHook {
         Logger.log(`VideoAudioHook.setupTree media.duration = ${media.duration}`);
         this.tree.makeCueObjects(cues, media);
 
-        cues.forEach((c) => {
+        cues.forEach(c => {
             this.track.addCue(c);
         });
 
@@ -120,7 +120,7 @@ export default class VideoAudioHook {
     //For all nodes in the tree with a NaN beginning, activate them.
     //We can't do this until play() - Else audio sources without bbegin will start on load
     activateTree() {
-        this.tree.traverse((c) => {
+        this.tree.traverse(c => {
             if (isNaN(c.begin)) {
                 c.onActive();
             }
@@ -133,7 +133,7 @@ export default class VideoAudioHook {
     //At the very least, we need to revokeObjectURL.
     resetTree() {
         this.track.removeCues();
-        this.tree.traverse((c) => {
+        this.tree.traverse(c => {
             if (typeof c.onFinalise === "function") {
                 c.onFinalise();
             }
@@ -150,7 +150,7 @@ export default class VideoAudioHook {
                     this.activateTree();
                     this.firstTime = false;
                 } else {
-                    this.tree.traverse((c) => {
+                    this.tree.traverse(c => {
                         if (typeof c.onRestart === "function") {
                             c.onRestart();
                         }
@@ -166,7 +166,7 @@ export default class VideoAudioHook {
         if (audioContext && audioContext.state === "running") {
             Logger.log("suspending audio context");
             audioContext.suspend().then(() => {
-                this.tree.traverse((c) => {
+                this.tree.traverse(c => {
                     if (typeof c.onPause === "function") {
                         c.onPause();
                     }

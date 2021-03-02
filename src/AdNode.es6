@@ -45,7 +45,7 @@ export default class AdNode {
         // Logger.log(`postComputeEnd() for ${this.pathString}, value \"${this.value}\"
         // ${this.begin} --> ${this.end}`); // DEBUG
         if (this.children) {
-            this.children.forEach((c) => { c.postComputeEnd(); });
+            this.children.forEach(c => { c.postComputeEnd(); });
         }
     }
 

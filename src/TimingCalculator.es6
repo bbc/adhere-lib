@@ -69,7 +69,7 @@ export default class TimingCalculator {
     if (nullOrUndefined(end)) {
       // now we have to get the biggest defined end from each child
       const ends = [];
-      element.children.forEach((c) => {
+      element.children.forEach(c => {
         ends.push(this.computeEnd(c, false));
       });
       if (!ends.includes(undefined) && ends.length > 0) {

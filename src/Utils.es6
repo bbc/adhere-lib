@@ -94,7 +94,7 @@ export default class Utils {
   }
 
   static gleanNamespaces(element) {
-    const namespaces = { "xml": Utils.NS_XML_URI };
+    const namespaces = { xml: Utils.NS_XML_URI };
     for (const key in element.attributes) {
       if (element.attributes.hasOwnProperty(key)) {
         if (key === "xmlns") {

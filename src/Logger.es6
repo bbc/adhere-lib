@@ -28,7 +28,7 @@ export default class Logger {
             console.log(str);
         }
         if (callbacksEnabled) {
-            callbacks.forEach((cb) => cb(str));
+            callbacks.forEach(cb => cb(str));
         }
     }
 
@@ -45,7 +45,7 @@ export default class Logger {
             console.error(str);
         }
         if (callbacksEnabled) {
-            callbacks.forEach((cb) => cb(str));
+            callbacks.forEach(cb => cb(str));
         }
     }
 

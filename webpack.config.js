@@ -15,32 +15,32 @@
 const path = require("path");
 
 module.exports = {
-    "target": "web",
-    "mode": "development",
-    "entry": [
+    target: "web",
+    mode: "development",
+    entry: [
         "./src/index.es6"
     ],
-    "output": {
-        "path": path.resolve(__dirname, "dist"),
-        "filename": "./bin/js/bundle.js",
-        "library": "adhere-lib",
-        "libraryTarget": "umd2"
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "./bin/js/bundle.js",
+        library: "adhere-lib",
+        libraryTarget: "umd2"
     },
-    "devServer": {
-        "contentBase": "./dist",
-        "index": "index.html",
-        "watchContentBase": true
+    devServer: {
+        contentBase: "./dist",
+        index: "index.html",
+        watchContentBase: true
     },
-    "module": {
-        "rules": [{
-                "enforce": "pre",
-                "test": /\.html$/,
-                "loader": "htmllint-loader"
+    module: {
+        rules: [{
+                enforce: "pre",
+                test: /\.html$/,
+                loader: "htmllint-loader"
             },
             {
-                "test": /\.(es6|js)$/,
-                "exclude": /node_modules/,
-                "loader": "babel-loader"
+                test: /\.(es6|js)$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             }
         ]
     }

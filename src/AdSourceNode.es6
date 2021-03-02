@@ -105,7 +105,7 @@ export default class AdSourceNode extends AudioNub {
             this.input.connect(this.gainNode);
             Logger.log(`Connected to media element source with src= ${ this.input.mediaElement.currentSrc }`);
 
-            this.media.play().catch((e) => {
+            this.media.play().catch(e => {
                 Logger.log(`AdSourceNode play rejected with error: ${e}.`);
             });
             this.output.connect(this.parent.gainNode); //TODO Make formal with .input
@@ -113,7 +113,7 @@ export default class AdSourceNode extends AudioNub {
             this.startTime = this.media.currentTime;
             this.isActive = true;
 
-            this.gainId = props.registerCallback((uiGain) => {
+            this.gainId = props.registerCallback(uiGain => {
                 //const oldVal = this.gainNode.gain.value;
                 //console.info("Base gain", this.gain, "UI gain", uiGain);
                 this.gainNode.gain.value = this.gain * uiGain;

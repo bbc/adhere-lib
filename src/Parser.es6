@@ -181,7 +181,7 @@ function markAudio(xmlNode) {
             markAudio(c);
         }
 
-        xmlNode.hasAudio = xmlNode.hasAudio || xmlNode.children.some((c) => c.hasAudio);
+        xmlNode.hasAudio = xmlNode.hasAudio || xmlNode.children.some(c => c.hasAudio);
     }
 }
 
@@ -301,7 +301,7 @@ function parseLeafNode(parent, node, audioContext) {
 
     //Remove nulls. These are nodes to nowhere. We should also remove anonymous spans if we're a leaf.
     ret.children = ret.children.filter(
-        (n) => !!n && (n._xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%audio` ||
+        n => !!n && (n._xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%audio` ||
             n._xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%animate`));
 
     if (node.hasSpeech) {
@@ -314,7 +314,7 @@ function parseLeafNode(parent, node, audioContext) {
 function parseIntermediateNode(parent, node, audioContext) {
     const ret = new AudioNub(parent, node, audioContext);
     ret.children = node.children.map(parseNode.bind(null, ret));
-    ret.children = ret.children.filter((n) => !!n); //Remove nulls. These are nodes to nowhere
+    ret.children = ret.children.filter(n => !!n); //Remove nulls. These are nodes to nowhere
 
     return ret;
 }
@@ -338,9 +338,9 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
                 name: "root(mediaAudio)",
                 attributes: { "tta:gain": defaultVideoGain, "tta:pan": 0 },
                 namespaces: {
-                    "default": Utils.NS_TTML_URI,
-                    "xml": Utils.NS_XML_URI,
-                    "tta": `${Utils.NS_TTML_AUDIO_URI}`
+                    default: Utils.NS_TTML_URI,
+                    xml: Utils.NS_XML_URI,
+                    tta: `${Utils.NS_TTML_AUDIO_URI}`
                 },
                 fullyQualifiedName: `${Utils.NS_TTML_URI}%%tt`
             },
@@ -352,7 +352,7 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
             name: "default audio out",
             attributes: {},
             namespaces: {
-                "xml": Utils.NS_XML_URI
+                xml: Utils.NS_XML_URI
             },
             fullyQualifiedName: ""
         },

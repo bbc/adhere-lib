@@ -40,10 +40,10 @@ export default class TextPresenter {
 
     static updatePresentedText() {
         let generatedString = "";
-        presentedStrings.forEach((v) => {
+        presentedStrings.forEach(v => {
             generatedString = v; // change = to += to concatenate, or leave as is to just show the last one
         });
-        callbacks.forEach((cb) => cb(generatedString));
+        callbacks.forEach(cb => cb(generatedString));
     }
 
     static addCallback(cb) {
