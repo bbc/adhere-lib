@@ -1,9 +1,9 @@
 module.exports = {
-    "extends": "walmart/configurations/es6-browser",
-    "plugins": [
+    extends: "walmart/configurations/es6-browser",
+    plugins: [
         "import"
     ],
-    "rules": {
+    rules: {
       "no-empty-label": 0,
       "no-labels": 1,
 
@@ -30,8 +30,8 @@ module.exports = {
       // "max-statements": ["error", 30]
 
     },
-    "env": {
-        "browser": true,
-        "node": true
+    env: {
+        browser: true,
+        node: true
     }
 };
