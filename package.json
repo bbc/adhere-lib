@@ -23,7 +23,7 @@
         ".": "./dist/bin/js/bundle.js"
     },
     "scripts": {
-        "lint": "eslint --ext .js --ext .es6 ./*.js src test",
+        "lint": "eslint --ext .js --ext .es6 ./*.js .",
         "build": "webpack",
         "start": "webpack-dev-server --open",
         "watch": "webpack --watch",
