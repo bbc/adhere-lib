@@ -35,7 +35,6 @@
     "dependencies": {
         "@ava/babel-preset-stage-4": "1.1.0",
         "@babel/polyfill": "7.12.1",
-        "aws-sdk": "2.852.0",
         "bluebird": "3.7.2",
         "hash-obj": "1.0.0",
         "jquery": "3.5.1",

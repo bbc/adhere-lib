@@ -15,7 +15,6 @@ export default {
     includePaths({
       include: {},
       paths: ['src/'],
-      external: ['aws-sdk'],
       extensions: ['.js', '.es6'],
     }),
     globals(),
