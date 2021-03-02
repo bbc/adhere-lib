@@ -33,7 +33,7 @@
     "author": "",
     "license": "Apache-2.0",
     "dependencies": {
-        "@ava/babel-preset-stage-4": "1.1.0",
+        "@ava/babel-preset-stage-4": "4.0.0",
         "@babel/polyfill": "7.12.1",
         "xml-query": "1.5.0",
         "xml-reader": "2.4.3"
