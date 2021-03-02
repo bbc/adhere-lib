@@ -24,9 +24,9 @@
     },
     "scripts": {
         "lint": "eslint --ext .js --ext .es6 ./*.js src test",
-        "build": "webpack -d",
+        "build": "webpack",
         "start": "webpack-dev-server --open",
-        "watch": "webpack -d --watch",
+        "watch": "webpack --watch",
         "test": "npm run-script lint && nyc ava | tnyan",
         "cucumber": "npm run-script lint && cucumber-js ./test/cucumber/features"
     },
