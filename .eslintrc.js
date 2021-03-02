@@ -1,4 +1,5 @@
 module.exports = {
+    parser: "@babel/eslint-parser",
     extends: "walmart/configurations/es6-browser",
     plugins: [
         "import"
