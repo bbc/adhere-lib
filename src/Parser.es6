@@ -202,7 +202,7 @@ function markSpeech(xmlNode, parentSpeech) {
         const hasSpeech = xmlNode.hasSpeech;
         for (const c of xmlNode.children) {
             const thisChildHasSpeech = markSpeech(c, hasSpeech);
-            xmlNode.hasSpeech = thisChildHasSpeech || xmlNode.hasSpeech; //If any children have speech, I have speech (but that doesn't mean all my children do).
+            xmlNode.hasSpeech = thisChildHasSpeech || xmlNode.hasSpeech; //If any children have speech, I have speech (but that doesn't mean all my children do)
         }
     }
 
