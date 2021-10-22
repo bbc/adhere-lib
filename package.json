@@ -10,7 +10,7 @@
     "main": "./dist/bin/js/bundle.js",
     "type": "commonjs",
     "engines": {
-        "node": ">=12.12.0"
+        "node": ">=14.18.1"
     },
     "resolve": {
         "extensions": [
