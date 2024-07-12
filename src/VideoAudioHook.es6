@@ -53,10 +53,12 @@ export default class VideoAudioHook {
             this.parseTTML(ttmlFile, reader.result);
         };
 
+        Logger.log(`Reading TTML file at: ${ ttmlFile }`);
         reader.readAsText(ttmlFile);
     }
 
     attachTTMLfromURL(ttmlURL) {
+        Logger.log(`Fetching TTML from URL at: ${ ttmlURL }`);
         fetch(ttmlURL).then(response => {
             if (!response.ok) throw Error(response.statusText);
             return response.text().then(text => { this.parseTTML(ttmlURL, text); });
