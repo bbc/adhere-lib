@@ -3,8 +3,8 @@
 set -e
 
 source /usr/local/nvm/nvm.sh
-nvm install 14.18.1
-nvm use 14.18.1
+nvm install 20.11.0
+nvm use 20.11.0
 nvm install-latest-npm
 
 # Install & Build
