@@ -109,7 +109,7 @@ function propagateNamespaces(xmlNode) {
     }
     if (xmlNode.children) {
         for (const c of xmlNode.children) {
-            if (c.parent === null || c.parent.namespaces === {}) {
+            if (c.parent === null || c.parent.namespaces === null || Object.keys(c.parent.namespaces).length === 0) {
                 c.namespaces = Utils.gleanNamespaces(c);
             } else {
                 c.namespaces = Object.assign(c.parent.namespaces, Utils.gleanNamespaces(c));

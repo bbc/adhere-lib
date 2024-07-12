@@ -26,7 +26,9 @@ module.exports = {
 
       "max-params": ["error", 6],
 
-      "no-console": "off"
+      "no-console": "off",
+
+      "sourceType": "module"
 
       // "max-statements": ["error", 30]
 
