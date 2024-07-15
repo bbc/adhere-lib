@@ -1,3 +1,5 @@
+[![Build 🛠️](https://github.com/bbc/adhere-lib/actions/workflows/build.yml/badge.svg?branch=main&event=status)](https://github.com/bbc/adhere-lib/actions/workflows/build.yml)
+
 # adhere-lib
 Javascript library for processing AD profile TTML2 and presenting with an HTML video element
 
