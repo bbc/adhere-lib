@@ -28,7 +28,10 @@ module.exports = {
 
       "no-console": "off",
 
-      "sourceType": "module"
+      "comma-dangle": [
+        "error", "always-multiline"
+      ],
+    //   "sourceType": "module"
 
       // "max-statements": ["error", 30]
 

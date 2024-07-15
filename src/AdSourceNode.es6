@@ -23,7 +23,7 @@ const readyStateMap = {
     1: "HAVE_METADATA",
     2: "HAVE_CURRENT_DATA",
     3: "HAVE_FUTURE_DATA",
-    4: "HAVE_ENOUGH_DATA"
+    4: "HAVE_ENOUGH_DATA",
 };
 
 // This guy is a little weird - It's the input to it's parent; i.e. in the graph
