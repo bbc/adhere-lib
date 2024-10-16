@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import "core-js";
 import "regenerator-runtime/runtime";
 
 import { VideoAudioHook } from "./VideoAudioHook.es6";
@@ -20,4 +19,3 @@ import { TextPresenter } from "./TextPresenter.es6";
 import { Logger } from "./Logger.es6";
 
 export { Logger, TextPresenter, VideoAudioHook };
-module.exports = exports = { Logger, TextPresenter, VideoAudioHook };

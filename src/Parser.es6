@@ -109,7 +109,7 @@ function propagateNamespaces(xmlNode) {
     }
     if (xmlNode.children) {
         for (const c of xmlNode.children) {
-            if (c.parent === null || c.parent.namespaces === {}) {
+            if (c.parent === null || c.parent.namespaces === null || Object.keys(c.parent.namespaces).length === 0) {
                 c.namespaces = Utils.gleanNamespaces(c);
             } else {
                 c.namespaces = Object.assign(c.parent.namespaces, Utils.gleanNamespaces(c));
@@ -340,9 +340,9 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
                 namespaces: {
                     default: Utils.NS_TTML_URI,
                     xml: Utils.NS_XML_URI,
-                    tta: `${Utils.NS_TTML_AUDIO_URI}`
+                    tta: `${Utils.NS_TTML_AUDIO_URI}`,
                 },
-                fullyQualifiedName: `${Utils.NS_TTML_URI}%%tt`
+                fullyQualifiedName: `${Utils.NS_TTML_URI}%%tt`,
             },
             audioContext,
             mediaPair);
@@ -352,9 +352,9 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
             name: "default audio out",
             attributes: {},
             namespaces: {
-                xml: Utils.NS_XML_URI
+                xml: Utils.NS_XML_URI,
             },
-            fullyQualifiedName: ""
+            fullyQualifiedName: "",
         },
         audioContext);
     defaultOutput.makeDefaultOutput();

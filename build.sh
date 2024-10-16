@@ -3,8 +3,9 @@
 set -e
 
 source /usr/local/nvm/nvm.sh
-nvm install 12.12.0
-nvm use 12.12.0
+nvm install 20.11.0
+nvm use 20.11.0
+nvm install-latest-npm
 
 # Install & Build
 npm install

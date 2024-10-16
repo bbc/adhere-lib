@@ -23,7 +23,7 @@ export default class AdNode {
         this.parent = parent;
         this.time = {
             begin: TimingCalculator.computeBegin(xmlNode),
-            end: undefined
+            end: undefined,
         };
 
         this._name = xmlNode.name;

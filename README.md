@@ -1,3 +1,5 @@
+[![Build 🛠️](https://github.com/bbc/adhere-lib/actions/workflows/build.yml/badge.svg?branch=main&event=status)](https://github.com/bbc/adhere-lib/actions/workflows/build.yml)
+
 # adhere-lib
 Javascript library for processing AD profile TTML2 and presenting with an HTML video element
 
@@ -21,9 +23,13 @@ A web page showcasing adhere-lib is available at https://bbc.github.io/Adhere/
 ## Setup
 
 ```Shell
-nvm install 14.16.0
-nvm use 14.16.0
+nvm install 20.11.0
+nvm use 20.11.0
+nvm install-latest-npm
 ```
+
+(latest npm is currently 10.8.1)
+
 `cd` to project dir
 
 ```Shell
