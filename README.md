@@ -7,7 +7,8 @@ the use of audio attributes that can be controlled from a TTML2 document.
 The library is designed as a module to be incorporated into package-based builds
 e.g. with webpack.
 
-For details of the TTML2 AD document format, see https://w3c.github.io/adpt/
+For details of the TTML2 Dubbing and Audio Description profiles of TTML2 (DAPT), see https://www.w3.org/TR/dapt/ document format,
+which replaces the older ADPT at https://w3c.github.io/adpt/
 
 A web page showcasing adhere-lib is available at https://bbc.github.io/Adhere/
 
