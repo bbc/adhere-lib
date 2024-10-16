@@ -21,9 +21,13 @@ A web page showcasing adhere-lib is available at https://bbc.github.io/Adhere/
 ## Setup
 
 ```Shell
-nvm install 14.16.0
-nvm use 14.16.0
+nvm install 14.18.1
+nvm use 14.18.1
+nvm install-latest-npm
 ```
+
+(latest npm is currently 8.1.1)
+
 `cd` to project dir
 
 ```Shell
