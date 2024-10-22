@@ -38,10 +38,10 @@
         "xml-reader": "2.4.3"
     },
     "devDependencies": {
-        "@babel/core": "7.15.5",
-        "@babel/eslint-parser": "7.15.4",
-        "@babel/preset-env": "7.15.6",
-        "@babel/register": "7.15.3",
+        "@babel/core": "7.25.9",
+        "@babel/eslint-parser": "7.25.9",
+        "@babel/preset-env": "7.25.9",
+        "@babel/register": "7.25.9",
         "@cucumber/cucumber": "7.3.1",
         "ava": "3.15.0",
         "babel-loader": "8.2.2",
