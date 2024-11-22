@@ -42,7 +42,7 @@
         "@babel/eslint-parser": "7.15.4",
         "@babel/preset-env": "7.15.6",
         "@babel/register": "7.15.3",
-        "@cucumber/cucumber": "7.3.1",
+        "@cucumber/cucumber": "7.3.2",
         "ava": "3.15.0",
         "babel-loader": "8.2.2",
         "babel-plugin-istanbul": "6.0.0",
