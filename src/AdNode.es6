@@ -29,9 +29,12 @@ export default class AdNode {
         this._name = xmlNode.name;
         this._value = xmlNode.value;
         if (xmlNode.attributes) {
-            this._pitch = Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%pitch`);
-            this._speak = Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%speak`);
-            this._id = Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_XML_URI}%%id`);
+            this._pitch = Utils.getAttributeByFullyQualifiedName(
+                xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%pitch`);
+            this._speak = Utils.getAttributeByFullyQualifiedName(
+                xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%speak`);
+            this._id = Utils.getAttributeByFullyQualifiedName(
+                xmlNode, `${Utils.NS_XML_URI}%%id`);
         }
         if (audioContext) {
             this.ac = audioContext;
@@ -146,7 +149,8 @@ export default class AdNode {
     }
 
     get pathString() {
-        return ((this.parent) ? `${this.parent.pathString } -> ` : "") + `${this.name}${this.idString}`;
+        return ((this.parent) ? `${this.parent.pathString } -> ` : "") 
+            + `${this.name}${this.idString}`;
     }
 
     get idString() {

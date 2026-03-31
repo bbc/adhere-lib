@@ -90,7 +90,8 @@ export default class TimingCalculator {
     }
 
     const syncbase = (parent) ? this.computeBegin(parent) : 0;
-    const thisEnd = (element.attributes.end) ? this.parseSeconds(element.attributes.end) + syncbase : undefined;
+    const thisEnd = (element.attributes.end) ? this.parseSeconds(
+      element.attributes.end) + syncbase : undefined;
 
     if (specified(thisEnd)) {
       if (specified(parentEnd)) {

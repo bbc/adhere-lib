@@ -75,7 +75,9 @@ export default class AdSourceNode extends AudioNub {
                 Logger.log(`Audio source making progress. readyState = ${this.mediaReadyState(m)}`);
             });
             m.addEventListener("waiting", () => {
-                Logger.log(`Audio source is waiting for more data. readyState = ${this.mediaReadyState(m)}`);
+                Logger.log(
+                    `Audio source is waiting for more data. readyState = `
+                    + `${this.mediaReadyState(m)}`);
             });
         }
     }
@@ -85,7 +87,8 @@ export default class AdSourceNode extends AudioNub {
         const normalEnd = super.end;
 
         if (this.clipEnd) {
-            //The duration of the clip added to the start time, or the span end, whichever comes first.
+            // The duration of the clip added to the start time, or the span end,
+            // whichever comes first.
             ret = Math.min(normalEnd, this.begin + (this.clipEnd - this.clipBegin));
         } else {
             ret = normalEnd;
@@ -103,13 +106,18 @@ export default class AdSourceNode extends AudioNub {
             this.input = this.mediaNode;
             this.gainNode.gain.value = this.gain * props.getCurrentGain();
             this.input.connect(this.gainNode);
-            Logger.log(`Connected to media element source with src= ${ this.input.mediaElement.currentSrc }`);
+            Logger.log(
+                `Connected to media element source with src = `
+                + `${this.input.mediaElement.currentSrc}`);
 
             this.media.play().catch(e => {
                 Logger.log(`AdSourceNode play rejected with error: ${e}.`);
             });
             this.output.connect(this.parent.gainNode); //TODO Make formal with .input
-            Logger.log(`Active source into: ${ this.parent.name }; src: ${ this.media.src}; from: ${ this.media.currentTime } including offset of ${offset}.`);
+            Logger.log(
+                `Active source into: ${ this.parent.name }; `
+                + `src: ${ this.media.src}; `
+                + `from: ${ this.media.currentTime } including offset of ${offset}.`);
             this.startTime = this.media.currentTime;
             this.isActive = true;
 

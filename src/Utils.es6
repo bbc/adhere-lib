@@ -66,12 +66,17 @@ export default class Utils {
     );
   }
 
+  static elementHasDefinedAttribute(element, fullyQualifiedAttributeName) {
+    return this.getAttributeByFullyQualifiedName(
+      element, fullyQualifiedAttributeName) !== undefined;
+  }
+
   static hasAudioAttribute(element) {
     return (
-      this.getAttributeByFullyQualifiedName(element, `${Utils.NS_TTML_URI}#audio%%gain`) !== undefined
-      || this.getAttributeByFullyQualifiedName(element, `${Utils.NS_TTML_URI}#audio%%pan`) !== undefined
-      || this.getAttributeByFullyQualifiedName(element, `${Utils.NS_TTML_URI}#audio%%pitch`) !== undefined
-      || this.getAttributeByFullyQualifiedName(element, `${Utils.NS_TTML_URI}#audio%%speak`) !== undefined
+      this.elementHasDefinedAttribute(element, `${Utils.NS_TTML_AUDIO_URI}%%gain`)
+      || this.elementHasDefinedAttribute(element, `${Utils.NS_TTML_AUDIO_URI}%%pan`)
+      || this.elementHasDefinedAttribute(element, `${Utils.NS_TTML_AUDIO_URI}%%pitch`)
+      || this.elementHasDefinedAttribute(element, `${Utils.NS_TTML_AUDIO_URI}%%speak`)
     );
   }
 
@@ -100,7 +105,8 @@ export default class Utils {
         if (key === "xmlns") {
           namespaces.default = element.attributes[key];
         } else if (key === "xmlns:xml" && element.attributes[key] !== Utils.NS_XML_URI) {
-          console.warn("Namespace xmlns:xml is reserved in XML and must not be bound to another namespace!");
+          console.warn(
+            "Namespace xmlns:xml is reserved in XML and must not be bound to another namespace!");
           console.warn(`${key}=${element.attributes[key]} is ignored.`);
         } else if (key.startsWith("xmlns:")) {
           namespaces[key.split(":")[1]] = element.attributes[key];
@@ -117,7 +123,9 @@ export default class Utils {
       if (element.namespaces.hasOwnProperty(prefix)) {
         return `${element.namespaces[prefix]}%%${suffix}`;
       } else {
-        console.warn(`Cannot find the namespace for element ${element.name}. Make sure your TTML2 file is valid XML.`);
+        console.warn(
+          `Cannot find the namespace for element ${element.name}. `
+          + `Make sure your TTML2 file is valid XML.`);
         return undefined;
       }
     }
