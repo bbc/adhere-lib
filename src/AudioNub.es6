@@ -75,8 +75,14 @@ export default class AudioNub extends AdNode {
 
   copyAudioAttributes(xmlNode) {
     if (xmlNode.attributes) {
-      this._gain = parseFloat(Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%gain`));
-      this._pan = parseFloat(Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%pan`));
+      this._gain = parseFloat(
+        Utils.getAttributeByFullyQualifiedName(
+          xmlNode,
+          `${Utils.NS_TTML_AUDIO_URI}%%gain`));
+      this._pan = parseFloat(
+        Utils.getAttributeByFullyQualifiedName(
+          xmlNode,
+          `${Utils.NS_TTML_AUDIO_URI}%%pan`));
     }
   }
 }

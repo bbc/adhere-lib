@@ -57,7 +57,6 @@ function parseEmbeddedSource(node) {
     }
     const wsRegex = /\s/gi;
 
-    // eslint-disable-next-line no-undef
     const dataChunk = base64js.toByteArray(chunk.value.replace(wsRegex, ""));
     const blob = new Blob([dataChunk], { type: dataType });
 
@@ -109,7 +108,9 @@ function propagateNamespaces(xmlNode) {
     }
     if (xmlNode.children) {
         for (const c of xmlNode.children) {
-            if (c.parent === null || c.parent.namespaces === {}) {
+            if (c.parent === null
+                || c.parent.namespaces === null
+                || Object.keys(c.parent.namespaces).length === 0) {
                 c.namespaces = Utils.gleanNamespaces(c);
             } else {
                 c.namespaces = Object.assign(c.parent.namespaces, Utils.gleanNamespaces(c));
@@ -125,8 +126,9 @@ function flattenSpans(xmlNode) {
     if (xmlNode.children) {
         for (let i = 0; i < xmlNode.children.length;) {
             const c = xmlNode.children[i];
-            if ((xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%span` || xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%chunk`) &&
-                c.fullyQualifiedName === "") {
+            if ((xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%span`
+                 || xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%chunk`)
+                && c.fullyQualifiedName === "") {
                 xmlNode.value = c.value; //Take the text inside it
                 xmlNode.children.splice(i, 1);
             } else {
@@ -156,7 +158,6 @@ function removeOther(xmlNode) {
 function siblingsHaveAudio(xmlNode) {
     const siblings = xmlNode.parent.children;
     for (const s of siblings) {
-        // eslint-disable-next-line eqeqeq
         if (s != xmlNode && s.fullyQualifiedName === `${Utils.NS_TTML_URI}%%audio`) {
             return true;
         }
@@ -188,13 +189,15 @@ function markAudio(xmlNode) {
 function markSpeech(xmlNode, parentSpeech) {
     let speechSpecified = false;
     if (xmlNode.attributes) {
-        const speakAttribute = Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%speak`);
+        const speakAttribute = Utils.getAttributeByFullyQualifiedName(
+            xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%speak`);
         if (speakAttribute) {
             speechSpecified = true;
             xmlNode.hasSpeech = !(speakAttribute === "none");
         }
     }
-    if (!speechSpecified) { // it's inherited downwards, if I don't specify, I get what my parent specifies.
+    if (!speechSpecified) {
+        // it's inherited downwards, if I don't specify, I get what my parent specifies.
         xmlNode.hasSpeech = parentSpeech;
     }
 
@@ -202,7 +205,9 @@ function markSpeech(xmlNode, parentSpeech) {
         const hasSpeech = xmlNode.hasSpeech;
         for (const c of xmlNode.children) {
             const thisChildHasSpeech = markSpeech(c, hasSpeech);
-            xmlNode.hasSpeech = thisChildHasSpeech || xmlNode.hasSpeech; //If any children have speech, I have speech (but that doesn't mean all my children do)
+            // If any children have speech, I have speech
+            // (but that doesn't mean all my children do)
+            xmlNode.hasSpeech = thisChildHasSpeech || xmlNode.hasSpeech;
         }
     }
 
@@ -228,9 +233,10 @@ function prepareXML(xmlNode) {
     flattenSpans(xmlNode);
     removeOther(xmlNode);
 
-    //Mark nodes for hasSpeech and hasAudio
-    //Basically am I used in the pathway; if I or my descendants or my ascendants
-    //have speech or audio attributes, I'm marked too.
+    // Mark nodes for hasSpeech and hasAudio
+    // Basically am I used in the pathway;
+    // if I or my descendants or my ascendants
+    // have speech or audio attributes, I'm marked too.
     markAudio(xmlNode);
     markSpeech(xmlNode);
     removeNotAudio(xmlNode);
@@ -243,7 +249,8 @@ function parseAnimateNode(parent, node, audioContext) {
 }
 
 function isLeafNode(node) {
-    return node.fullyQualifiedName === `${Utils.NS_TTML_URI}%%span` || node.fullyQualifiedName === ""; //span or anonymous span/
+    return node.fullyQualifiedName === `${Utils.NS_TTML_URI}%%span`
+        || node.fullyQualifiedName === ""; //span or anonymous span/
 }
 
 function parseSpeechNode(parent, node, audioContext) {
@@ -268,7 +275,8 @@ function parseAudioSourceNode(parent, node) {
     } else if (!src && node.children) {
         audioSrc = parseEmbeddedSource(node);
     } else {
-        Logger.error("Found an audio node but couldn't work out what its source is supposed to be.");
+        Logger.error(
+            "Found an audio node but couldn't work out what its source is supposed to be.");
     }
 
     let ret;
@@ -299,7 +307,8 @@ function parseLeafNode(parent, node, audioContext) {
     const ret = new AdLeafNode(parent, node, audioContext);
     ret.children = node.children.map(parseNode.bind(null, ret));
 
-    //Remove nulls. These are nodes to nowhere. We should also remove anonymous spans if we're a leaf.
+    // Remove nulls. These are nodes to nowhere.
+    // We should also remove anonymous spans if we're a leaf.
     ret.children = ret.children.filter(
         n => !!n && (n._xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%audio` ||
             n._xmlNode.fullyQualifiedName === `${Utils.NS_TTML_URI}%%animate`));
@@ -340,9 +349,9 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
                 namespaces: {
                     default: Utils.NS_TTML_URI,
                     xml: Utils.NS_XML_URI,
-                    tta: `${Utils.NS_TTML_AUDIO_URI}`
+                    tta: `${Utils.NS_TTML_AUDIO_URI}`,
                 },
-                fullyQualifiedName: `${Utils.NS_TTML_URI}%%tt`
+                fullyQualifiedName: `${Utils.NS_TTML_URI}%%tt`,
             },
             audioContext,
             mediaPair);
@@ -352,9 +361,9 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
             name: "default audio out",
             attributes: {},
             namespaces: {
-                xml: Utils.NS_XML_URI
+                xml: Utils.NS_XML_URI,
             },
-            fullyQualifiedName: ""
+            fullyQualifiedName: "",
         },
         audioContext);
     defaultOutput.makeDefaultOutput();
@@ -386,7 +395,9 @@ export default function parseTree(audioContext, media, url, xmlTree, startRoot) 
 
 export function setAudioCacheStrategy(cacheStrategy) {
     audioCacheStrategy = cacheStrategy;
-    Logger.log(`Audio cache strategy set to ${(cacheStrategy === CACHE_STRATEGY_REUSE) ? "REUSE" : "NO CACHE"}`);
+    Logger.log(
+        `Audio cache strategy set to `
+        + `${(cacheStrategy === CACHE_STRATEGY_REUSE) ? "REUSE" : "NO CACHE"}`);
 }
 
 export function getAudioCacheStrategy() {

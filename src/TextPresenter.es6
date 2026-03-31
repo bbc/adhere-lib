@@ -41,7 +41,9 @@ export default class TextPresenter {
     static updatePresentedText() {
         let generatedString = "";
         presentedStrings.forEach(v => {
-            generatedString = v; // change = to += to concatenate, or leave as is to just show the last one
+            // In the following line, change = to += to concatenate,
+            // or leave as is to just show the last one
+            generatedString = v;
         });
         callbacks.forEach(cb => cb(generatedString));
     }

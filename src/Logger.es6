@@ -66,4 +66,6 @@ export default class Logger {
     }
 }
 
+export {Logger};
+
 module.exports = exports = { Logger };

@@ -32,13 +32,11 @@ export default class VideoAudioHook {
 
         this.videoplayer.addEventListener(
             "play",
-            this.onVideoPlay.bind(this)
-        );
+            this.onVideoPlay.bind(this));
 
         this.videoplayer.addEventListener(
             "pause",
-            this.onVideoPause.bind(this)
-        );
+            this.onVideoPause.bind(this));
     }
 
     setup() {
@@ -53,10 +51,12 @@ export default class VideoAudioHook {
             this.parseTTML(ttmlFile, reader.result);
         };
 
+        Logger.log(`Reading TTML file at: ${ ttmlFile }`);
         reader.readAsText(ttmlFile);
     }
 
     attachTTMLfromURL(ttmlURL) {
+        Logger.log(`Fetching TTML from URL at: ${ ttmlURL }`);
         fetch(ttmlURL).then(response => {
             if (!response.ok) throw Error(response.statusText);
             return response.text().then(text => { this.parseTTML(ttmlURL, text); });
@@ -80,8 +80,7 @@ export default class VideoAudioHook {
         this.xmlReader.parseXML(
             result,
             () => null,
-            this.setupTree.bind(this, media, url)
-        );
+            this.setupTree.bind(this, media, url));
     }
 
     set audioCacheStrategy(cacheStrategy) {
@@ -127,10 +126,12 @@ export default class VideoAudioHook {
         });
     }
 
-    //onFinalise() goes a little further than onInactive
-    //onInactive should be sufficient for audionode garbage collection, but it's not clear if it's the case
-    //Firefox webaudio tab shows audionodes persisting(actually though?) long after use and disconnection
-    //At the very least, we need to revokeObjectURL.
+    // onFinalise() goes a little further than onInactive
+    // onInactive should be sufficient for audionode garbage collection,
+    // but it's not clear if it's the case
+    // Firefox webaudio tab shows audionodes persisting(actually though?)
+    // long after use and disconnection
+    // At the very least, we need to revokeObjectURL.
     resetTree() {
         this.track.removeCues();
         this.tree.traverse(c => {

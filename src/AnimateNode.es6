@@ -21,12 +21,18 @@ export default class AnimateNode extends AdNode {
     constructor(parent, xmlNode, audioContext) {
         super(parent, xmlNode, audioContext);
 
-        if (Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%gain`)) {
-            this.gains = Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%gain`).split(";").map(parseFloat);
+        if (Utils.getAttributeByFullyQualifiedName(
+                xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%gain`)) {
+            this.gains = Utils.getAttributeByFullyQualifiedName(
+                xmlNode,
+                `${Utils.NS_TTML_AUDIO_URI}%%gain`).split(";").map(parseFloat);
         }
 
-        if (Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%pan`)) {
-            this.pans = Utils.getAttributeByFullyQualifiedName(xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%pan`).split(";").map(parseFloat);
+        if (Utils.getAttributeByFullyQualifiedName(
+                xmlNode, `${Utils.NS_TTML_AUDIO_URI}%%pan`)) {
+            this.pans = Utils.getAttributeByFullyQualifiedName(
+                xmlNode,
+                `${Utils.NS_TTML_AUDIO_URI}%%pan`).split(";").map(parseFloat);
         }
     }
 

@@ -29,11 +29,16 @@ export default class AdUserControlledSourceNode extends AdSourceNode {
         if (this.media && !this.isActive) {
             this.input = this.mediaNode;
             this.input.connect(this.gainNode);
-            Logger.log(`Connected to media element source with src= ${ this.input.mediaElement.currentSrc }`);
+            Logger.log(
+                `Connected to media element source with `
+                + `src= ${ this.input.mediaElement.currentSrc }`);
 
             if (this.parent) {
                 this.output.connect(this.parent.gainNode); //TODO Make formal with .input
-                Logger.log(`Active source into: ${ this.parent.name }; src: ${ this.media.src}; from: ${ this.media.currentTime }`);
+                Logger.log(
+                    `Active source into: ${ this.parent.name }; `
+                    + `src: ${ this.media.src}; `
+                    + `from: ${ this.media.currentTime }`);
             } else {
                 Logger.log("No parent to connect");
             }
