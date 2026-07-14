@@ -47,7 +47,7 @@
         "@babel/preset-env": "7.29.7",
         "@babel/register": "7.29.7",
         "@cucumber/cucumber": "13.0.0",
-        "@html-eslint/eslint-plugin": "0.62.0",
+        "@html-eslint/eslint-plugin": "0.63.0",
         "@html-eslint/parser": "0.62.0",
         "ava": "8.0.1",
         "babel-loader": "10.1.1",
