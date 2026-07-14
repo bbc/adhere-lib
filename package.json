@@ -60,7 +60,7 @@
         "globals": "17.7.0",
         "nyc": "18.0.0",
         "tap-nyan": "1.1.0",
-        "webpack": "5.108.3",
+        "webpack": "5.108.4",
         "webpack-cli": "7.1.0",
         "webpack-dev-server": "5.2.6"
     },
