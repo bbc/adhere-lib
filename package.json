@@ -48,7 +48,7 @@
         "@babel/register": "7.29.7",
         "@cucumber/cucumber": "13.0.0",
         "@html-eslint/eslint-plugin": "0.64.0",
-        "@html-eslint/parser": "0.63.0",
+        "@html-eslint/parser": "0.64.0",
         "ava": "8.0.1",
         "babel-loader": "10.1.1",
         "babel-plugin-istanbul": "8.0.2",
