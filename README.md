@@ -23,12 +23,12 @@ A web page showcasing adhere-lib is available at https://bbc.github.io/Adhere/
 ## Setup
 
 ```Shell
-nvm install 20.11.0
-nvm use 20.11.0
+nvm install 24
+nvm use 24
 nvm install-latest-npm
 ```
 
-(latest npm is currently 10.8.1)
+(latest npm is currently 12.0.2)
 
 `cd` to project dir
 
@@ -186,4 +186,4 @@ This is licensed under the Apache 2.0 License.
 
 ## Copyright
 
-Copyright (c) 2021 BBC
+Copyright (c) 2026 BBC

@@ -1,4 +1,7 @@
 name: Build 🛠️
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   workflow_dispatch: # can call manually
@@ -12,7 +15,7 @@ jobs:
     name: Run the tests
     strategy:
       matrix:
-         node-version: ['18.x', '20.x']
+         node-version: ['24.x', '26.x']
 
     runs-on: ubuntu-latest
 
@@ -27,3 +30,31 @@ jobs:
     - run: npm run lint
     - run: npm run build
     - run: npm run test
+
+  comment-success-on-pr:
+    if: success()
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Success Comment to PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: build
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
+          message: |
+            Lint, build and test passing for commit ${{ github.event.pull_request.head.sha }} 🚀
+
+  comment-failure-on-pr:
+    if: failure()
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Failure Comment to PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: build
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
+          message: |
+            Lint, build and test FAILING for commit ${{ github.event.pull_request.head.sha }} 💥

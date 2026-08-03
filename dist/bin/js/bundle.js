@@ -231,17 +231,17 @@ eval("{\n\nvar EventEmitter = __webpack_require__(/*! eventemitter3 */ \"./node_
 /******/ });
 /************************************************************************/
 /******/ // The module cache
-/******/ var __webpack_module_cache__ = {};
+/******/ const __webpack_module_cache__ = {};
 /******/ 
 /******/ // The require function
 /******/ function __webpack_require__(moduleId) {
 /******/ 	// Check if module is in cache
-/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 	if (cachedModule !== undefined) {
 /******/ 		return cachedModule.exports;
 /******/ 	}
 /******/ 	// Create a new module (and put it into the cache)
-/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 	const module = __webpack_module_cache__[moduleId] = {
 /******/ 		// no module.id needed
 /******/ 		// no module.loaded needed
 /******/ 		exports: {}
@@ -250,7 +250,7 @@ eval("{\n\nvar EventEmitter = __webpack_require__(/*! eventemitter3 */ \"./node_
 /******/ 	// Execute the module function
 /******/ 	if (!(moduleId in __webpack_modules__)) {
 /******/ 		delete __webpack_module_cache__[moduleId];
-/******/ 		var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 		const e = new Error("Cannot find module '" + moduleId + "'");
 /******/ 		e.code = 'MODULE_NOT_FOUND';
 /******/ 		throw e;
 /******/ 	}
@@ -265,7 +265,7 @@ eval("{\n\nvar EventEmitter = __webpack_require__(/*! eventemitter3 */ \"./node_
 /******/ // startup
 /******/ // Load entry module and return exports
 /******/ // This entry module can't be inlined because the eval devtool is used.
-/******/ var __webpack_exports__ = __webpack_require__("./src/index.es6");
+/******/ let __webpack_exports__ = __webpack_require__("./src/index.es6");
 /******/ const __webpack_exports__Logger = __webpack_exports__.Logger;
 /******/ const __webpack_exports__TextPresenter = __webpack_exports__.TextPresenter;
 /******/ const __webpack_exports__VideoAudioHook = __webpack_exports__.VideoAudioHook;
