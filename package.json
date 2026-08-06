@@ -61,7 +61,7 @@
         "nyc": "18.0.0",
         "tap-nyan": "1.1.0",
         "webpack": "5.108.4",
-        "webpack-cli": "7.2.1",
+        "webpack-cli": "7.2.2",
         "webpack-dev-server": "6.0.0"
     },
     "ava": {
