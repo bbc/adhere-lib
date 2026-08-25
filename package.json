@@ -42,7 +42,7 @@
     "devDependencies": {
         "@ava/babel-preset-stage-4": "4.0.0",
         "@babel/core": "7.29.7",
-        "@babel/eslint-parser": "7.29.7",
+        "@babel/eslint-parser": "8.0.1",
         "@babel/plugin-transform-class-properties": "7.29.7",
         "@babel/preset-env": "7.29.7",
         "@babel/register": "7.29.7",
